@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'api_health', to: 'application#health'
+  root 'application#health'
 
   namespace :api do 
     namespace :v1 do
