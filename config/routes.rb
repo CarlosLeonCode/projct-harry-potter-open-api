@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
+  # health endpoint
   root 'application#health'
 
   namespace :api do 
     namespace :v1 do
-      # health
 
-      resources :houses
+      resources :school_houses
       
     end
   end 

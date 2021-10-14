@@ -2,10 +2,14 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-development:
-  <<: *default
-  database: harry_potter_open_api
   username: postgres
   password: postgres
   host: localhost
+
+development:
+  <<: *default
+  database: dev_harry_potter_open_api
+
+test: 
+  <<: *default
+  database: test_harry_potter_api

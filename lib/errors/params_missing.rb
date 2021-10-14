@@ -1,0 +1,1 @@
+class Errors::ParamsMissing < StandardError; end

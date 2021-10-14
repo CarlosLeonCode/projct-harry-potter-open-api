@@ -1,0 +1,7 @@
+--- Error ---
+"\xC3" from ASCII-8BIT to UTF-8
+/home/carlosleoncode/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ruby_jard-0.3.1/lib/ruby_jard/repl_proxy.rb:247:in `write'
+/home/carlosleoncode/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ruby_jard-0.3.1/lib/ruby_jard/repl_proxy.rb:247:in `block in listen_key_press'
+/home/carlosleoncode/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ruby_jard-0.3.1/lib/ruby_jard/repl_proxy.rb:235:in `loop'
+/home/carlosleoncode/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ruby_jard-0.3.1/lib/ruby_jard/repl_proxy.rb:235:in `listen_key_press'
+/home/carlosleoncode/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ruby_jard-0.3.1/lib/ruby_jard/repl_proxy.rb:171:in `block in repl'
