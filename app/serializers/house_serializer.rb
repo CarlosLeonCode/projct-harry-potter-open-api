@@ -1,5 +1,5 @@
 class HouseSerializer
   include JSONAPI::Serializer
 
-  attributes :name
+  attributes :name, :url_logo
 end

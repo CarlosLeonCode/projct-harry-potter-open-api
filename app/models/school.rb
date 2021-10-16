@@ -1,3 +1,3 @@
 class School < ApplicationRecord
-  belongs_to :school_house
+  has_many :school_houses
 end

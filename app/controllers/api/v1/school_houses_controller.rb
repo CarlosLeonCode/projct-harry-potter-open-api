@@ -1,6 +1,6 @@
 class Api::V1::SchoolHousesController < ApiController
 
-    before_action :set_house, only: %i[ show ]
+    before_action :set_house, only: %i[ show update ]
 
     def index
         houses = SchoolHouse.all
@@ -9,6 +9,15 @@ class Api::V1::SchoolHousesController < ApiController
             data,
             :ok,
             I18n.t('general.controller_responses.messages.success_transaction')
+        )
+    end
+
+    def show
+        data = HouseSerializer.new(@house).serializable_hash
+        json_response(
+            data, 
+            :ok, 
+            I18n.t('general.controller_responses.messages.find_ok')
         )
     end
 
@@ -23,24 +32,23 @@ class Api::V1::SchoolHousesController < ApiController
         )
     end
 
-    def update;end
-
-    def delete;end
-
-    def show
+    def update
+        @house.update(house_params)
         data = HouseSerializer.new(@house).serializable_hash
         json_response(
-            data, 
-            :ok, 
-            I18n.t('general.controller_responses.messages.find_ok')
+            data,
+            :ok,
+            I18n.t('general.controller_responses.messages.updated_ok')
         )
     end
+
+    def destroy;end
 
     private 
 
     def house_params
         raise Errors::ParamsMissing.new I18n.t('general.controller_responses.messages.params_missing') unless params.dig(:house).present?
-        params.require(:house).permit(:name)
+        params.require(:house).permit(:name, :school_id, :url_logo)
     end 
 
     def set_house 

@@ -51,16 +51,18 @@ ActiveRecord::Schema.define(version: 2021_09_27_042757) do
 
   create_table "school_houses", force: :cascade do |t|
     t.string "name"
+    t.text "url_logo"
+    t.bigint "school_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["school_id"], name: "index_school_houses_on_school_id"
   end
 
   create_table "schools", force: :cascade do |t|
     t.string "name"
-    t.bigint "school_house_id", null: false
+    t.text "url_logo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["school_house_id"], name: "index_schools_on_school_house_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -78,7 +80,7 @@ ActiveRecord::Schema.define(version: 2021_09_27_042757) do
   add_foreign_key "people", "genres"
   add_foreign_key "school_has_professors", "people"
   add_foreign_key "school_has_professors", "schools"
-  add_foreign_key "schools", "school_houses"
+  add_foreign_key "school_houses", "schools"
   add_foreign_key "students", "people"
   add_foreign_key "students", "school_houses"
   add_foreign_key "students", "schools"

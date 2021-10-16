@@ -9,6 +9,7 @@ en:
         find_error:     'Record not found 😵‍💫'
         success_transaction:  'Transaction successfully'
         params_missing: 'Params missing 😱'
+        updated_ok:     'Record was updated successfully 🤓'
 
   controllers:
     api:
