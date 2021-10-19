@@ -15,12 +15,6 @@ ActiveRecord::Schema.define(version: 2021_09_27_042757) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "countries", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -31,12 +25,10 @@ ActiveRecord::Schema.define(version: 2021_09_27_042757) do
     t.string "name"
     t.string "lastname"
     t.bigint "genre_id", null: false
-    t.bigint "country_id", null: false
     t.text "real_photo"
     t.text "cartoon_photo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["country_id"], name: "index_people_on_country_id"
     t.index ["genre_id"], name: "index_people_on_genre_id"
   end
 
@@ -76,7 +68,6 @@ ActiveRecord::Schema.define(version: 2021_09_27_042757) do
     t.index ["school_id"], name: "index_students_on_school_id"
   end
 
-  add_foreign_key "people", "countries"
   add_foreign_key "people", "genres"
   add_foreign_key "school_has_professors", "people"
   add_foreign_key "school_has_professors", "schools"

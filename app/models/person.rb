@@ -1,4 +1,4 @@
 class Person < ApplicationRecord
+  validates_presence_of :name, :lastname
   belongs_to :genre
-  belongs_to :country
 end

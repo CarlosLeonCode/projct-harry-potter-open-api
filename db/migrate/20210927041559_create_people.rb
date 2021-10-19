@@ -4,7 +4,6 @@ class CreatePeople < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :lastname
       t.references :genre, null: false, foreign_key: true
-      t.references :country, null: false, foreign_key: true
       t.text :real_photo
       t.text :cartoon_photo
 
