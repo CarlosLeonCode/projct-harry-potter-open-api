@@ -10,5 +10,7 @@ RSpec.describe Person, type: :model do
 
   describe "relations" do 
     it { should belong_to(:genre) }
+    it { should have_one(:wizard) }
+    it { should have_one(:student) }
   end
 end

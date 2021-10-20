@@ -1,5 +1,4 @@
-class GenreSerializer
-    include JSONAPI::Serializer
-    attributes :name
-  end
+class GenreSerializer < ActiveModel::Serializer
+  attributes :name
+end
   

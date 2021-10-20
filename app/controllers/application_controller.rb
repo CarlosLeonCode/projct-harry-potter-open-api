@@ -6,9 +6,9 @@ class ApplicationController < ActionController::API
     # GET -> /api_health
     def health
         begin
-            json_response({}, :ok, 'API is working!')
+            json_response({status: :ok}, :ok)
         rescue => exception
-            json_response({}, :internal_server_error, 'Ooops API is not working!') 
+            json_response({ status: :internal_server_error}, :internal_server_error) 
         end
     end 
 end

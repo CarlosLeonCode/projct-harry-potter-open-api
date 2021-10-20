@@ -1,52 +1,29 @@
-class Api::V1::PeopleController < ApplicationController
+class Api::V1::PeopleController < ApiController
   
-  before_action :set_person, only: %i[ show ]
+  before_action :set_person, only: [:show]
   
   def index
     people = Person.all
-    data = PeopleSerializer.new(people).serializable_hash
-    json_response(
-      data,
-      :ok,
-      I18n.t('general.controller_responses.messages.success_transaction')
-    )
+    json_response(people, :ok)
   end
 
   def show
-    data = PeopleSerializer.new(@person).serializable_hash
-    json_response(
-      data,
-      :ok,
-      I18n.t('general.controller_responses.messages.find_ok')
-    )
+    json_response(@person, :ok)
   end
 
-  def create
-    person = Person.create!(people_params)
-    data = PeopleSerializer.new(person).serializable_hash
-    json_response(
-      data,
-      :created,
-      I18n.t('general.controller_responses.messages.created_ok')
-    )
-  end
+  def wizards 
+    wizards_ids = Wizard.select(:person_id).all.pluck(:person_id)
+    wizards = Person.where(id: wizards_ids)
+    json_response(wizards, :ok)
+  end 
 
-  def update
+  def students 
+    students_ids = Student.select(:person_id).all.pluck(:person_id)
+    students = Person.where(id: students_ids)
+    json_response(students, :ok)
   end
-
-  def destroy;end
 
   private 
-
-  def people_params
-    params.require(:person).permit(
-      :name,
-      :lastname,
-      :genre_id,
-      :real_photo,
-      :cartoon_photo
-    )
-  end
 
   def set_person 
     @person = Person.find(params.dig(:id))

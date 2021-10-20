@@ -1,4 +1,4 @@
-class SchoolSerializer
-  include JSONAPI::Serializer
-  attributes :name, :logo
+class SchoolSerializer < ActiveModel::Serializer
+  attributes :id, :name, :url_logo
+
 end
