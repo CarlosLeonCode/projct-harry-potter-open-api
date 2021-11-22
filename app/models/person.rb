@@ -4,4 +4,8 @@ class Person < ApplicationRecord
   belongs_to :genre
   has_one :wizard
   has_one :student
+
+  scope :by_wizards, -> { Person.joins(:wizard) }
+  scope :by_students, -> { Person.joins(:student) }
+
 end

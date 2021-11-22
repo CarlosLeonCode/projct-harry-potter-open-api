@@ -39,11 +39,6 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
-    active_model_serializers (0.10.12)
-      actionpack (>= 4.1, < 6.2)
-      activemodel (>= 4.1, < 6.2)
-      case_transform (>= 0.2)
-      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     activejob (6.1.4.1)
       activesupport (= 6.1.4.1)
       globalid (>= 0.3.6)
@@ -65,12 +60,11 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    amazing_print (1.2.2)
     bootsnap (1.9.1)
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.3)
-    case_transform (0.2)
-      activesupport
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
@@ -90,7 +84,8 @@ GEM
       activesupport (>= 5.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
-    jsonapi-renderer (0.2.2)
+    jsonapi-serializer (2.2.0)
+      activesupport (>= 4.2)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -193,12 +188,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (~> 0.10.12)
+  amazing_print
   bootsnap (>= 1.4.4)
   byebug
   factory_bot_rails
   faker (~> 2.19)
   figaro
+  jsonapi-serializer
   listen (~> 3.3)
   pg (>= 0.18, < 2.0)
   puma (~> 5.0)

@@ -1,19 +1,19 @@
 class Api::V1::SchoolHousesController < ApiController
 
-    before_action :set_house, only: [:show]
-
     def index
         houses = SchoolHouse.all
-        json_response(houses, :ok)
+        data = SchoolHouseSerializer.new houses
+        json_response(data, :ok)
     end
 
     def show
-        json_response(@school_house, :ok)
+        data = SchoolHouseSerializer.new house
+        json_response(data, :ok)
     end
 
     private 
 
-    def set_house 
-        @school_house = SchoolHouse.find(params.dig(:id))
+    def house 
+        @school_house ||= SchoolHouse.find(params.dig(:id))
     end 
 end

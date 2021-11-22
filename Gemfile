@@ -20,7 +20,7 @@ gem 'puma', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "figaro"
-gem 'active_model_serializers', '~> 0.10.12'
+gem 'jsonapi-serializer'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -33,6 +33,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker', '~> 2.19'
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'amazing_print'
 end
 
 group :development do

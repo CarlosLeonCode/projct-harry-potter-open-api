@@ -1,31 +1,19 @@
 class Api::V1::PeopleController < ApiController
-  
-  before_action :set_person, only: [:show]
-  
+    
   def index
     people = Person.all
-    json_response(people, :ok)
+    data = PersonSerializer.new(people)
+    json_response(data, :ok)
   end
 
   def show
-    json_response(@person, :ok)
-  end
-
-  def wizards 
-    wizards_ids = Wizard.select(:person_id).all.pluck(:person_id)
-    wizards = Person.where(id: wizards_ids)
-    json_response(wizards, :ok)
-  end 
-
-  def students 
-    students_ids = Student.select(:person_id).all.pluck(:person_id)
-    students = Person.where(id: students_ids)
-    json_response(students, :ok)
+    data = PersonSerializer.new(person)
+    json_response(data, :ok)
   end
 
   private 
 
-  def set_person 
-    @person = Person.find(params.dig(:id))
+  def person 
+    @person ||= Person.find(params.dig(:id))
   end
 end
