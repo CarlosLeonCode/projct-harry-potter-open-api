@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_20_160807) do
+ActiveRecord::Schema.define(version: 2021_12_28_212704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,12 @@ ActiveRecord::Schema.define(version: 2021_10_20_160807) do
     t.text "cartoon_photo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "ocupation"
+    t.string "wand"
+    t.string "patronus"
+    t.bigint "school_house_id"
     t.index ["genre_id"], name: "index_people_on_genre_id"
+    t.index ["school_house_id"], name: "index_people_on_school_house_id"
   end
 
   create_table "school_houses", force: :cascade do |t|
@@ -48,31 +53,6 @@ ActiveRecord::Schema.define(version: 2021_10_20_160807) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "students", force: :cascade do |t|
-    t.bigint "school_house_id", null: false
-    t.bigint "school_id", null: false
-    t.bigint "person_id", null: false
-    t.string "pet_name"
-    t.string "pet_img"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["person_id"], name: "index_students_on_person_id"
-    t.index ["school_house_id"], name: "index_students_on_school_house_id"
-    t.index ["school_id"], name: "index_students_on_school_id"
-  end
-
-  create_table "wizards", force: :cascade do |t|
-    t.bigint "person_id", null: false
-    t.string "wand_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["person_id"], name: "index_wizards_on_person_id"
-  end
-
   add_foreign_key "people", "genres"
   add_foreign_key "school_houses", "schools"
-  add_foreign_key "students", "people"
-  add_foreign_key "students", "school_houses"
-  add_foreign_key "students", "schools"
-  add_foreign_key "wizards", "people"
 end

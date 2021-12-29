@@ -13,12 +13,9 @@ Rails.application.routes.draw do
         get 'houses', to: 'schools#houses', on: :member
       end
       resources :students, only: [:index, :show]
-      resources :people, only: [:index, :show] do 
-        scope module: :people do
-          collection do  
-            resources :wizards, only: %i[ index show ]
-            resources :students, only: %i[ index show ]
-          end
+      resources :people, only: [:index, :show] do
+        collection do
+          get :students, to: :students
         end
       end
 

@@ -11,27 +11,7 @@ if School.all.empty?
         {
             name: 'Castelobruxo',
             url_logo: ''
-        },
-        {
-            name: 'Durmstrang Institute',
-            url_logo: ''
-        },
-        {
-            name: 'Ilvermorny School of Witchcraft and Wizardry',
-            url_logo: ''
-        },
-        {
-            name: 'Koldovstoretz',
-            url_logo: ''
-        },
-        {
-            name: 'Mahoutokoro School of Magic',
-            url_logo: ''
-        },
-        {
-            name: 'Uagadou School of Magic',
-            url_logo: ''
-        },
+        }
     ])
     puts "Seed -> School created 🤓" 
 else 
