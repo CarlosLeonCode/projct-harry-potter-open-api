@@ -6,7 +6,7 @@
 #  name            :string
 #  lastname        :string
 #  genre_id        :bigint           not null
-#  real_photo      :text
+#  real_photo      :text 
 #  cartoon_photo   :text
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null

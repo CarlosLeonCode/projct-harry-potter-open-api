@@ -115,6 +115,7 @@ Many thanks to:
 
 - [Harry Potter Wiki](https://harrypotter.fandom.com/wiki/Main_Page) for all the information published about Harry Potter World.
 - [Wizards Unite Hub](https://wizardsunitehub.info/database/) for resources published.
+- [Szokekiss Marton](https://www.deviantart.com/szokekissmarton/gallery/61235899/all-fantastic-beasts-from-the-original-book) for the illustrations of the creatures
 
 <br>
 

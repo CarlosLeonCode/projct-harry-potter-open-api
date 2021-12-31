@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   # -- Start api v1 routes
   namespace :api do 
+
     namespace :v1 do
       get 'health', to: 'health#status'
-
       resources :school_houses, only: [:index, :show]
       resources :genres, only: [:index, :show]
       resources :schools, only: [:index, :show] do        
@@ -18,8 +18,9 @@ Rails.application.routes.draw do
           get :students, to: :students
         end
       end
-
+      resources :creatures, only: [:index, :show]
     end
+    # -- End api v1 routes
+
   end 
-  # -- End api v1 routes
 end

@@ -6,14 +6,15 @@ namespace :hp_data do
     err: ':entity already exist 😅'
   }
 
-  desc "TODO"
+  desc "Build database information"
   task build: :environment do
-    
     @workbook = RubyXL::Parser.parse(FILE_PATH)
+  
     create_genres
     create_schools
     create_school_houses
     create_people
+    create_creatures
   end
 
   def get_worksheet(name)
@@ -114,7 +115,7 @@ namespace :hp_data do
       
       transaction { Genre.create! data }
 
-      puts OUT[:ok].gsub(':entity', "Genres with #{data.size} were")
+      puts OUT[:ok].gsub(':entity', "Genres with #{data.size} records were")
     else 
       puts OUT[:err].gsub(':entity', 'Genres')
     end
@@ -131,7 +132,7 @@ namespace :hp_data do
       data = build_group_of_data(cols_rows, worksheet)
       transaction { School.create! data }
 
-      puts OUT[:ok].gsub(':entity', "Schools with #{data.size} were")
+      puts OUT[:ok].gsub(':entity', "Schools with #{data.size} records were")
     else 
       puts OUT[:err].gsub(':entity', 'Schools')
     end
@@ -147,7 +148,7 @@ namespace :hp_data do
       data = build_group_of_data(cols_rows, worksheet, ['school@name'])
       transaction { SchoolHouse.create! data }
       
-      puts OUT[:ok].gsub(':entity', "School houses with #{data.size} were")
+      puts OUT[:ok].gsub(':entity', "School houses with #{data.size} records were")
     else 
       puts OUT[:err].gsub(':entity', 'School houses')
     end
@@ -164,12 +165,27 @@ namespace :hp_data do
       
       transaction { Person.create! data }
       
-      puts OUT[:ok].gsub(':entity', "People with #{data.size} were")
+      puts OUT[:ok].gsub(':entity', "People with #{data.size} records were")
     else 
       puts OUT[:err].gsub(':entity', 'People')
     end
   end
- 
 
+  def create_creatures
+    worksheet = get_worksheet 'creatures'
+    cols_rows = get_cols_rows worksheet
+
+    is_empty = transaction { Creature.all.empty? }
+
+    if is_empty
+      data = build_group_of_data(cols_rows, worksheet)
+      
+      transaction { Creature.create! data }
+      
+      puts OUT[:ok].gsub(':entity', "Creatures with #{data.size} records were")
+    else 
+      puts OUT[:err].gsub(':entity', 'Creatures')
+    end
+  end
 
 end
