@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://i.ibb.co/47LNFM0/harry-potter-open-api-logo.png" alt="image" border="0" width="450">
+<img src="https://i.ibb.co/drygyTX/harry-potter-open-api-logo.png" alt="image" border="0" width="450">
 
 <br /> 
 
@@ -90,22 +90,34 @@ rails s
 
 # TO DO 👀
 
-## Seeds
-- Add Harry Potter characters to seeds
-- Add characters like **wizards** and **students** if it belongs on it 
-- Add school houses for other houses except Hogwarts
-
 ## Models 
 - Spells
 - Wizard Professions
-- Wallpapers
-- Creatures
+- Spells
+- Potions
 
 <br>
 
 # 🗒 Documentation
 
-Coming soon...
+## Endpoints
+
+> Schools -> https://harry-potter-open-api.herokuapp.com/api/v1/schools
+
+> School houses -> https://harry-potter-open-api.herokuapp.com/api/v1/school_houses
+
+> School house -> https://harry-potter-open-api.herokuapp.com/api/v1/school_houses/1
+
+> Characters -> https://harry-potter-open-api.herokuapp.com/api/v1/people
+
+> Character -> https://harry-potter-open-api.herokuapp.com/api/v1/people/1
+
+> Students -> https://harry-potter-open-api.herokuapp.com/api/v1/people/students
+
+> Creatures -> https://harry-potter-open-api.herokuapp.com/api/v1/creatures
+
+> Creature -> https://harry-potter-open-api.herokuapp.com/api/v1/creatures/1
+
 
 <br>
 
