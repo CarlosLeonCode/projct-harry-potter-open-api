@@ -93,7 +93,6 @@ All contributions are welcome: bug fixes, data contributions, recommendations.
 # TO DO 👀
 
 ## Models 
-- Spells
 - Wizard Professions
 - Spells
 - Potions
