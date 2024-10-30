@@ -260,6 +260,7 @@ DEPENDENCIES
   rspec-rails (~> 5.0, >= 5.0.2)
   rubyXL
   ruby_jard
+  rubyzip (~> 2.3.0)
   shoulda-matchers (~> 5.0)
   spring
   tzinfo-data

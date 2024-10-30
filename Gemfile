@@ -23,6 +23,7 @@ gem "figaro"
 gem 'jsonapi-serializer'
 gem 'rubyXL'
 gem 'rack-cors'
+gem 'rubyzip', '~> 2.3.0'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
