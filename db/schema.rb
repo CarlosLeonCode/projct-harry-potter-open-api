@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_31_012919) do
-
+ActiveRecord::Schema[7.2].define(version: 2024_10_30_045911) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,14 +21,14 @@ ActiveRecord::Schema.define(version: 2021_12_31_012919) do
     t.string "eye_color"
     t.string "mortality"
     t.text "img"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "people", force: :cascade do |t|
@@ -38,8 +37,8 @@ ActiveRecord::Schema.define(version: 2021_12_31_012919) do
     t.bigint "genre_id", null: false
     t.text "real_photo"
     t.text "cartoon_photo"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "ocupation"
     t.string "wand"
     t.string "patronus"
@@ -52,16 +51,16 @@ ActiveRecord::Schema.define(version: 2021_12_31_012919) do
     t.string "name"
     t.text "url_logo"
     t.bigint "school_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["school_id"], name: "index_school_houses_on_school_id"
   end
 
   create_table "schools", force: :cascade do |t|
     t.string "name"
     t.text "url_logo"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "people", "genres"

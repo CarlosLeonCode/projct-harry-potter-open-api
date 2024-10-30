@@ -15,7 +15,8 @@ Rails.application.routes.draw do
       resources :students, only: [:index, :show]
       resources :people, only: [:index, :show] do
         collection do
-          get :students, to: :students
+          # ! IMPORTANT: This doesn't work, pedding fix
+          resources :students 
         end
       end
       resources :creatures, only: [:index, :show]
